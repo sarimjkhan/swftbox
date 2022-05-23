@@ -27,6 +27,9 @@ const UrlRow = ({ url, baseUrl, loadParentData }) => {
         <small>{url.visits}</small>
       </td>
       <td>
+        <small>{url.expiry.substring(0, 10)}</small>
+      </td>
+      <td>
         <button
           type="button"
           className="btn btn-primary"

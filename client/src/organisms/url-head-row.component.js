@@ -7,6 +7,7 @@ export default function UrlHeadingRow() {
       <th scope="col">Short Url</th>
       <th scope="col">Created Date</th>
       <th scope="col">Visits on url</th>
+      <th scope="col">Expiry</th>
       <th scope="col">Action</th>
     </tr>
   );
