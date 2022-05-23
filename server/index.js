@@ -6,7 +6,7 @@ import urlShortenerRoutes from './routes/urlshortener.routes.js';
 import redirectionRoutes from './routes/redirection.routes.js';
 
 dotenv.config();
-const port = process.env.PORT || 5001;
+const port = process.env.BPORT || 5001;
 const app = express();
 
 app.use(cors());
