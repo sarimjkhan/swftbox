@@ -6,7 +6,7 @@ import urlShortenerRoutes from './routes/urlshortener.routes.js';
 import redirectionRoutes from './routes/redirection.routes.js';
 
 dotenv.config();
-const port = process.env.PORT;
+const port = process.env.PORT || 5001;
 const app = express();
 
 app.use(cors());
@@ -17,6 +17,10 @@ mongoose.connect(uri);
 mongoose.connection.once('open', () => {
   console.log('Database connection succesful!');
 });
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('../client/build'));
+}
 
 app.use('/urls', urlShortenerRoutes);
 app.use('/', redirectionRoutes);

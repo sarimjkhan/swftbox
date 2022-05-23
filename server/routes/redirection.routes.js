@@ -17,4 +17,8 @@ router.route('/:pathid').get(async (req, res) => {
   res.redirect(redirectUrl);
 });
 
+router.route('/*').get(async (req, res) => {
+  res.json({});
+});
+
 export default router;

@@ -4,6 +4,7 @@ import UrlShorteningService from '../services/urlshortener.service.js';
 const router = Router();
 const urlShorteningService = new UrlShorteningService();
 
+//Get all urls [GET]
 router.route('/').get((req, res) => {
   let baseUrl = `${req.protocol}://${req.headers.host}`;
   urlShorteningService
@@ -16,6 +17,7 @@ router.route('/').get((req, res) => {
     });
 });
 
+//Convert a url into its short url form [POST]
 router.route('/encode').post((req, res) => {
   const url = {
     bigUrl: req.body.url,
@@ -33,6 +35,7 @@ router.route('/encode').post((req, res) => {
     });
 });
 
+//Get the big url against a given shortUrl [GET]
 router.route('/decode').get((req, res) => {
   let urlToDecode = req.query.url;
   urlShorteningService
@@ -45,6 +48,7 @@ router.route('/decode').get((req, res) => {
     });
 });
 
+//Get statistics of a short url [GET]
 router.route('/statistics/:urlpath').get((req, res) => {
   let shortUrlId = req.params.urlpath;
   urlShorteningService
@@ -57,6 +61,7 @@ router.route('/statistics/:urlpath').get((req, res) => {
     });
 });
 
+//Delete a specific url [DELETE]
 router.route('/:shortUrlId').delete((req, res) => {
   let shortUrlId = req.params.shortUrlId;
   urlShorteningService
