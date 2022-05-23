@@ -6,6 +6,7 @@ const router = Router();
 const urlShorteningService = new UrlShorteningService();
 const statsService = new StatsService();
 
+//Access the short url and handle the redirection
 router.route('/:pathid').get(async (req, res) => {
   const pathId = req.params.pathid;
   const urlData = await urlShorteningService.getUrlDataByShortUrl(pathId);
@@ -17,6 +18,7 @@ router.route('/:pathid').get(async (req, res) => {
   res.redirect(redirectUrl);
 });
 
+//Handling bad routes
 router.route('/*').get(async (req, res) => {
   res.json({});
 });

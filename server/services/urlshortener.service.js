@@ -15,11 +15,6 @@ export default class UrlShorteningService {
     return Url.findOne({ shortUrl: { $regex: shortUrlId } });
   }
 
-  //Decode a short URL into Big Url
-  getUrlDataByShortUrlId(shortUrlId) {
-    return Url.findOne({ shortUrl: { $regex: shortUrlId } });
-  }
-
   //Get all urls with data
   getAllUrls() {
     return Url.find();

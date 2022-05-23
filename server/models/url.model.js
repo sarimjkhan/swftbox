@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import shortid from 'shortid';
 
 const UrlSchema = mongoose.Schema(
   {
