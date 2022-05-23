@@ -48,7 +48,7 @@ router.route('/decode').get((req, res) => {
 router.route('/statistics/:urlpath').get((req, res) => {
   let shortUrlId = req.params.urlpath;
   urlShorteningService
-    .getUrlDataByShortUrlId(shortUrlId)
+    .getUrlDataByShortUrl(shortUrlId)
     .then((url) => {
       res.status(200).json({ message: 'Success', url });
     })

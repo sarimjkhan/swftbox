@@ -11,12 +11,12 @@ export default class UrlShorteningService {
 
   //Decode a short URL into Big Url
   getUrlDataByShortUrl(shortUrl) {
-    return Url.findOne({ shortUrl });
+    const shortUrlId = shortUrl.substring(shortUrl.lastIndexOf('/') + 1);
+    return Url.findOne({ shortUrl: { $regex: shortUrlId } });
   }
 
   //Decode a short URL into Big Url
   getUrlDataByShortUrlId(shortUrlId) {
-    console.log('shorturlId: ', shortUrlId);
     return Url.findOne({ shortUrl: { $regex: shortUrlId } });
   }
 

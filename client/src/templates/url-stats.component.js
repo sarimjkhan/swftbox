@@ -36,48 +36,51 @@ export default class UrlStats extends Component {
     return (
       <form>
         <div className="form-group">
-          <label for="urlTextbox">Enter Short Url</label>
-          <input
-            type="text"
-            className="form-control mb-1"
-            id="urlTextbox"
-            placeholder="Enter url"
-            onChange={this.onChangeUrl}
-          />
-        </div>
-        <div>
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={this.onGetStats}
-          >
-            Get Url Stats
-          </button>
+          <div className="row">
+            <div className="col-md-12">
+              <label for="urlTextbox">Enter Short Url</label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-10">
+              <input
+                type="text"
+                className="form-control mb-1"
+                id="urlTextbox"
+                placeholder="Enter url"
+                onChange={this.onChangeUrl}
+              />
+            </div>
+            <div className="col-md-2">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={this.onGetStats}
+              >
+                Get Url Stats
+              </button>
+            </div>
+          </div>
+
+          <small className="form-text text-muted">
+            Url short url format examples:
+            <br />
+            1) contains /[ten-digit-path-id] --
+            http://localhost:5001/[ten-digit-path-id]
+            <br />
+            2) contains [ten-digit-path-id]
+          </small>
         </div>
 
         <br />
-        <div>
+        <div className="mt-3">
           {!isEmpty(this.state.urlStats) && (
-            <UrlStatsItem url={this.state.urlStats} />
+            <>
+              <h1>Url Details:</h1>
+              <UrlStatsItem url={this.state.urlStats} />
+            </>
           )}
         </div>
-        {/* <div>
-          {this.state.urlStats.bigUrl && <h3>Original Url:</h3>}
-          <small>
-            <a href={this.state.urlStats.bigUrl}>
-              {this.state.urlStats.bigUrl}
-            </a>
-          </small>
-        </div>
-
-        <div>
-          {this.state.urlStats.shortUrl && <h3>Shortened Url:</h3>}
-          <small>
-            <a href={this.state.urlStats.shortUrl}>
-              {this.state.urlStats.shortUrl}
-            </a>
-          </small>
-        </div> */}
       </form>
     );
   }

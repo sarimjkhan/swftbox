@@ -8,7 +8,7 @@ const statsService = new StatsService();
 
 router.route('/:pathid').get(async (req, res) => {
   const pathId = req.params.pathid;
-  const urlData = await urlShorteningService.getUrlDataByShortUrlId(pathId);
+  const urlData = await urlShorteningService.getUrlDataByShortUrl(pathId);
   statsService.addVisit(pathId);
   let redirectUrl = urlData.bigUrl;
   if (redirectUrl.indexOf('https') < 0) {

@@ -51,28 +51,48 @@ export default class CreateUrl extends Component {
         <UrlShortenerSpinner show={this.state.isLoading} />
         <form>
           <div className="form-group">
-            <label for="urlTextbox">Enter Url</label>
-            <input
-              type="text"
-              className="form-control mb-1"
-              id="urlTextbox"
-              placeholder="Enter url"
-              onChange={this.onChangeUrl}
-            />
-          </div>
-          <div>
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={() => this.onCreate()}
-            >
-              Create
-            </button>
-          </div>
+            <div className="row">
+              <div className="col-md-12">
+                <label for="urlTextbox">Enter Url</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-10">
+                <input
+                  type="text"
+                  className="form-control mb-1"
+                  id="urlTextbox"
+                  placeholder="Enter url"
+                  onChange={this.onChangeUrl}
+                />
+              </div>
+              <div className="col-md-2">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => this.onCreate()}
+                >
+                  Create Url
+                </button>
+              </div>
+            </div>
 
-          <div>
+            <small className="form-text text-muted">
+              Url format examples:
+              <br />
+              1) https://facebook.com
+              <br />
+              2) www.facebook.com
+              <br />
+              3) facebook.com
+            </small>
+          </div>
+          <div className="mt-3">
             {!isEmpty(this.state.createdUrl) && (
-              <UrlStatsItem url={this.state.createdUrl} />
+              <>
+                <h1>Url Details:</h1>
+                <UrlStatsItem url={this.state.createdUrl} />
+              </>
             )}
           </div>
         </form>
