@@ -1,2 +1,5 @@
-FROM node:14.8.0-slim
-WORKDIR /app
+FROM node
+RUN git clone https://github.com/sarimjkhan/swftbox.git
+WORKDIR /swftbox
+RUN yarn install
+CMD yarn start

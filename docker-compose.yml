@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    build: .
+    stdin_open: true
+    ports:
+      - '3000:3000'
+      - '5001:5001'
+    networks:
+      - url-shortener
+networks:
+  url-shortener:
+    driver: bridge
+
