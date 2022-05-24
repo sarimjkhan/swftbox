@@ -61,7 +61,7 @@ Deployed to HEROKU through GitHub Actions
 To see CI/CD in action, do a small change in readme.md and push the code to the following repository main branch.
 https://github.com/sarimjkhan/swftbox.git
 
-Backend deployed on https://swftbox.herokuapp.com/urls (Still under progress for frontend)
+Backend deployed on https://swftbox.herokuapp.com (Still under progress for frontend)
 ```
 
 ## API Documentation
